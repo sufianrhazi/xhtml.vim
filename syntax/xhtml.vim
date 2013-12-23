@@ -24,95 +24,228 @@ syn case match
 
 syn cluster xhtmlTagHook add=xhtmlElement
 
-" XHTML 1.0 Strict elements
-syn keyword xhtmlElement contained a abbr acronym address area base bdo big
-syn keyword xhtmlElement contained blockquote body br button caption cite
-syn keyword xhtmlElement contained code col colgroup dd del dfn div dl dt em
-syn keyword xhtmlElement contained fieldset form head hr img ins input kbd
-syn keyword xhtmlElement contained label legend li link map meta noscript
-syn keyword xhtmlElement contained object ol optgroup option param pre samp
-syn keyword xhtmlElement contained script span select small strong style sub
-syn keyword xhtmlElement contained sup table tbody td textarea tfoot th thead
-syn keyword xhtmlElement contained title tr tt ul var
-syn match   xhtmlElement contained /\<h[1-6]\>/
-syn match   xhtmlElement contained /\<\(b\|i\|p\|q\|html\)\>\_[^:]/me=e-1
-
-" Deprecated XHTML 1.0 elements (Transitional and Frameset)
-syn keyword xhtmlElement contained applet basefont center dir font
-syn keyword xhtmlElement contained iframe isindex menu strike
-syn match   xhtmlElement contained /\<\(s\|u\)\>\_[^:]/me=e-1
-" Elements only in XHTML 1.0 Frameset
-syn keyword xhtmlElement contained frame noframes frameset
-
-" Elements new in XHTML 1.1 (Ruby Annotation)
-syn keyword xhtmlElement contained ruby rbc rtc rb rt rp
-
-" Elements new in XHTML 2.0 (as of 7th Working Draft)
-syn keyword xhtmlElement contained access blockcode di handler nl quote
-syn keyword xhtmlElement contained section separator standby summary
-syn match   xhtmlElement contained /\<\(h\|l\)\>\_[^:]/me=e-1
-" XForms elements (XHTML 2.0)
-syn keyword xhtmlElement contained action alert bind case choices copy delete
-syn keyword xhtmlElement contained dispatch extension filename group help hint
-syn keyword xhtmlElement contained input insert instance item itemset label
-syn keyword xhtmlElement contained load mediatype message model output range
-syn keyword xhtmlElement contained rebuild recalculate refresh repeat reset
-syn keyword xhtmlElement contained revalidate secret select select1 send
-syn keyword xhtmlElement contained setfocus setindex setvalue submission submit
-syn keyword xhtmlElement contained switch textarea toggle trigger upload value
-" XML Events element (XHTML 2.0)
-syn keyword xhtmlElement contained listener
+" HTML5 elements
+syn keyword xhtmlElement contained a
+syn keyword xhtmlElement contained abbr
+syn keyword xhtmlElement contained address
+syn keyword xhtmlElement contained area
+syn keyword xhtmlElement contained article
+syn keyword xhtmlElement contained aside
+syn keyword xhtmlElement contained audio
+syn keyword xhtmlElement contained b
+syn keyword xhtmlElement contained base
+syn keyword xhtmlElement contained bdi
+syn keyword xhtmlElement contained bdo
+syn keyword xhtmlElement contained blockquote
+syn keyword xhtmlElement contained body
+syn keyword xhtmlElement contained br
+syn keyword xhtmlElement contained button
+syn keyword xhtmlElement contained canvas
+syn keyword xhtmlElement contained caption
+syn keyword xhtmlElement contained cite
+syn keyword xhtmlElement contained code
+syn keyword xhtmlElement contained col
+syn keyword xhtmlElement contained colgroup
+syn keyword xhtmlElement contained data
+syn keyword xhtmlElement contained datalist
+syn keyword xhtmlElement contained dd
+syn keyword xhtmlElement contained del
+syn keyword xhtmlElement contained details
+syn keyword xhtmlElement contained dfn
+syn keyword xhtmlElement contained dialog
+syn keyword xhtmlElement contained div
+syn keyword xhtmlElement contained dl
+syn keyword xhtmlElement contained dt
+syn keyword xhtmlElement contained em
+syn keyword xhtmlElement contained embed
+syn keyword xhtmlElement contained fieldset
+syn keyword xhtmlElement contained figcaption
+syn keyword xhtmlElement contained figure
+syn keyword xhtmlElement contained footer
+syn keyword xhtmlElement contained form
+syn keyword xhtmlElement contained h1 h2 h3 h4 h5 h6
+syn keyword xhtmlElement contained head
+syn keyword xhtmlElement contained header
+syn keyword xhtmlElement contained hr
+syn keyword xhtmlElement contained html
+syn keyword xhtmlElement contained i
+syn keyword xhtmlElement contained iframe
+syn keyword xhtmlElement contained img
+syn keyword xhtmlElement contained input
+syn keyword xhtmlElement contained ins
+syn keyword xhtmlElement contained kbd
+syn keyword xhtmlElement contained keygen
+syn keyword xhtmlElement contained label
+syn keyword xhtmlElement contained legend
+syn keyword xhtmlElement contained li
+syn keyword xhtmlElement contained link
+syn keyword xhtmlElement contained main
+syn keyword xhtmlElement contained map
+syn keyword xhtmlElement contained mark
+syn keyword xhtmlElement contained meta
+syn keyword xhtmlElement contained meter
+syn keyword xhtmlElement contained nav
+syn keyword xhtmlElement contained noscript
+syn keyword xhtmlElement contained object
+syn keyword xhtmlElement contained ol
+syn keyword xhtmlElement contained optgroup
+syn keyword xhtmlElement contained option
+syn keyword xhtmlElement contained output
+syn keyword xhtmlElement contained p
+syn keyword xhtmlElement contained param
+syn keyword xhtmlElement contained pre
+syn keyword xhtmlElement contained progress
+syn keyword xhtmlElement contained q
+syn keyword xhtmlElement contained rp
+syn keyword xhtmlElement contained rt
+syn keyword xhtmlElement contained ruby
+syn keyword xhtmlElement contained s
+syn keyword xhtmlElement contained samp
+syn keyword xhtmlElement contained script
+syn keyword xhtmlElement contained section
+syn keyword xhtmlElement contained select
+syn keyword xhtmlElement contained small
+syn keyword xhtmlElement contained source
+syn keyword xhtmlElement contained span
+syn keyword xhtmlElement contained strong
+syn keyword xhtmlElement contained style
+syn keyword xhtmlElement contained sub
+syn keyword xhtmlElement contained summary
+syn keyword xhtmlElement contained sup
+syn keyword xhtmlElement contained table
+syn keyword xhtmlElement contained tbody
+syn keyword xhtmlElement contained td
+syn keyword xhtmlElement contained textarea
+syn keyword xhtmlElement contained tfoot
+syn keyword xhtmlElement contained th
+syn keyword xhtmlElement contained thead
+syn keyword xhtmlElement contained time
+syn keyword xhtmlElement contained title
+syn keyword xhtmlElement contained tr
+syn keyword xhtmlElement contained track
+syn keyword xhtmlElement contained u
+syn keyword xhtmlElement contained ul
+syn keyword xhtmlElement contained var
+syn keyword xhtmlElement contained video
+syn keyword xhtmlElement contained wbr
 
 " XHTML ATTRIBUTES
 
 syn cluster xhtmlAttribHook add=xhtmlAttr
 
-" XHTML 1.0 Strict attributes
-syn keyword xhtmlAttr contained abbr accept accesskey action align alt
-syn keyword xhtmlAttr contained archive axis border cellpadding cellspacing
-syn keyword xhtmlAttr contained char charoff charset checked cite class
-syn keyword xhtmlAttr contained classid codebase codetype cols colspan content
-syn keyword xhtmlAttr contained coords data datetime declare defer dir
-syn keyword xhtmlAttr contained disabled enctype for frame headers height href
-syn keyword xhtmlAttr contained hreflang id ismap label lang longdesc
-syn keyword xhtmlAttr contained maxlength media method multiple name nohref
-syn keyword xhtmlAttr contained profile readonly rel rev rows rowspan rules
-syn keyword xhtmlAttr contained scheme scope selected shape size span src
-syn keyword xhtmlAttr contained standby summary tabindex title type usemap
-syn keyword xhtmlAttr contained valign value valuetype width
-syn match   xhtmlAttr contained /\<\(accept-charset\|http-equiv\|style\)\>/
-syn match   xhtmlAttr contained /\<xmlns\>\_[^:]/me=e-1
-
-" Deprecated XHTML 1.0 attributes (Transitional and Frameset)
-syn keyword xhtmlAttr contained alink background bgcolor clear code color
-syn keyword xhtmlAttr contained compact face hspace language link noshade
-syn keyword xhtmlAttr contained nowrap object prompt start target text version
-syn keyword xhtmlAttr contained vlink vspace
-" Attributes only in XHTML 1.0 Frameset
-syn keyword xhtmlAttr contained frameborder marginheight marginwidth
-syn keyword xhtmlAttr contained noresize scrolling
+" HTML5 attributes
+syn keyword xhtmlAttr abbr
+syn keyword xhtmlAttr accept
+syn keyword xhtmlAttr accept-charset
+syn keyword xhtmlAttr accesskey
+syn keyword xhtmlAttr action
+syn keyword xhtmlAttr alt
+syn keyword xhtmlAttr async
+syn keyword xhtmlAttr autocomplete
+syn keyword xhtmlAttr autofocus
+syn keyword xhtmlAttr autoplay
+syn keyword xhtmlAttr border
+syn keyword xhtmlAttr challenge
+syn keyword xhtmlAttr charset
+syn keyword xhtmlAttr checked
+syn keyword xhtmlAttr cite
+syn keyword xhtmlAttr class
+syn keyword xhtmlAttr cols
+syn keyword xhtmlAttr colspan
+syn keyword xhtmlAttr content
+syn keyword xhtmlAttr contenteditable
+syn keyword xhtmlAttr controls
+syn keyword xhtmlAttr coords
+syn keyword xhtmlAttr crossorigin
+syn keyword xhtmlAttr data
+syn keyword xhtmlAttr datetime
+syn keyword xhtmlAttr default
+syn keyword xhtmlAttr defer
+syn keyword xhtmlAttr dir
+syn keyword xhtmlAttr dirname
+syn keyword xhtmlAttr disabled
+syn keyword xhtmlAttr download
+syn keyword xhtmlAttr draggable
+syn keyword xhtmlAttr dropzone
+syn keyword xhtmlAttr enctype
+syn keyword xhtmlAttr for
+syn keyword xhtmlAttr form
+syn keyword xhtmlAttr formaction
+syn keyword xhtmlAttr formenctype
+syn keyword xhtmlAttr formmethod
+syn keyword xhtmlAttr formnovalidate
+syn keyword xhtmlAttr formtarget
+syn keyword xhtmlAttr headers
+syn keyword xhtmlAttr height
+syn keyword xhtmlAttr hidden
+syn keyword xhtmlAttr high
+syn keyword xhtmlAttr href
+syn keyword xhtmlAttr hreflang
+syn keyword xhtmlAttr http-equiv
+syn keyword xhtmlAttr id
+syn keyword xhtmlAttr ismap
+syn keyword xhtmlAttr keytype
+syn keyword xhtmlAttr kind
+syn keyword xhtmlAttr label
+syn keyword xhtmlAttr lang
+syn keyword xhtmlAttr list
+syn keyword xhtmlAttr loop
+syn keyword xhtmlAttr low
+syn keyword xhtmlAttr manifest
+syn keyword xhtmlAttr max
+syn keyword xhtmlAttr maxlength
+syn keyword xhtmlAttr media
+syn keyword xhtmlAttr mediagroup
+syn keyword xhtmlAttr method
+syn keyword xhtmlAttr min
+syn keyword xhtmlAttr multiple
+syn keyword xhtmlAttr muted
+syn keyword xhtmlAttr name
+syn keyword xhtmlAttr novalidate
+syn keyword xhtmlAttr open
+syn keyword xhtmlAttr optimum
+syn keyword xhtmlAttr pattern
+syn keyword xhtmlAttr placeholder
+syn keyword xhtmlAttr poster
+syn keyword xhtmlAttr preload
+syn keyword xhtmlAttr readonly
+syn keyword xhtmlAttr rel
+syn keyword xhtmlAttr required
+syn keyword xhtmlAttr reversed
+syn keyword xhtmlAttr rows
+syn keyword xhtmlAttr rowspan
+syn keyword xhtmlAttr sandbox
+syn keyword xhtmlAttr spellcheck
+syn keyword xhtmlAttr scope
+syn keyword xhtmlAttr scoped
+syn keyword xhtmlAttr seamless
+syn keyword xhtmlAttr selected
+syn keyword xhtmlAttr shape
+syn keyword xhtmlAttr size
+syn keyword xhtmlAttr sizes
+syn keyword xhtmlAttr span
+syn keyword xhtmlAttr src
+syn keyword xhtmlAttr srcdoc
+syn keyword xhtmlAttr srclang
+syn keyword xhtmlAttr start
+syn keyword xhtmlAttr step
+syn keyword xhtmlAttr style
+syn keyword xhtmlAttr tabindex
+syn keyword xhtmlAttr target
+syn keyword xhtmlAttr title
+syn keyword xhtmlAttr translate
+syn keyword xhtmlAttr type
+syn keyword xhtmlAttr typemustmatch
+syn keyword xhtmlAttr usemap
+syn keyword xhtmlAttr value
+syn keyword xhtmlAttr contained width
+syn keyword xhtmlAttr contained wrap
 
 " Events attributes (XHTML 1.x)
 if exists("xhtml_no_events_rendering")
   syn cluster xmlAttribHook add=xhtmlEventAttr
   syn match xhtmlEventAttr contained /\<on\(\(un\)\?load\|\(dbl\)\?click\|mouse\(down\|up\|over\|move\|out\)\|focus\|blur\|key\(press\|down\|up\)\|submit\|reset\|select\|change\)\>/
 endif
-
-" Attribute new in XHTML 1.1 (Ruby Annotation)
-syn keyword xhtmlAttr contained rbspan
-
-" Attributes new in XHTML 2.0
-syn keyword xhtmlAttr contained about datatype edit encoding full hrefmedia 
-syn keyword xhtmlAttr contained hreftype key layout nextfocus prevfocus
-syn keyword xhtmlAttr contained property role srctype targetid targetrole
-syn match   xhtmlAttr contained /\<content-length\>/
-syn match   xhtmlAttr contained /\<\(xml:\)\@<=base\>/
-syn match   xhtmlAttr contained /\<\(xsi:\)\@<=schemaLocation\>/
-" XForms attributes (XHTML 2.0)
-syn match xhtmlAttr contained "\<repeat-\(model\|bind\|nodeset\|startindex\|number\)\>"
-" XML Events attributes (XHTML 2.0)
-syn keyword xhtmlAttr contained defaultAction event handler observer
-syn keyword xhtmlAttr contained phase propagate target
 
 " SPECIALS
 
